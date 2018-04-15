@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "automatically prevent certain file edits from slipping past human code review",
   "main": "file-freezer.js",
-  "bin":"file-freezer.js"
+  "bin":"file-freezer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
