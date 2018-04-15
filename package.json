@@ -1,0 +1,42 @@
+{
+  "name": "file-freezer",
+  "version": "1.0.0",
+  "description": "automatically prevent certain file edits from slipping past human code review",
+  "main": "file-freezer.js",
+  "bin":"file-freezer.js"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jnvm",
+  "license": "MIT",
+  "keywords":["freeze"
+    ,"files"
+    ,"file"
+    ,"freezer"
+    ,"merkle"
+    ,"checksum"
+    ,"migration"
+    ,"prevent"
+    ,"edits"
+    ,"read-only"
+    ,"readonly"
+    ,"auto"
+    ,"automatic"
+    ,"automation"
+    ,"PR"
+    ,"tests"
+    ,"code review"
+    ,"code"
+    ,"review"
+    ,"cryptographic"
+    ,"digest"
+    ,"hash"
+    ,"signature"
+    ,"blockchainish"
+  ],
+  "dependencies": {
+    "args": "^4.0.0",
+    "eachvar": "^1.0.1",
+    "glob": "^7.1.2"
+  }
+}
