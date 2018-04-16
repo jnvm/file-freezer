@@ -12,9 +12,8 @@ var eachVar=require('eachvar')
 		`)
 		process.exit(1)
 	}
-
-module.exports={
-	check({readOnly=false,files}){
+	
+	,check=({readOnly=false,files})=>{
 		var found=glob.sync(files,{nodir:true})
 			,lastHash=''
 		found.sort().forEach(path=>{
@@ -42,8 +41,8 @@ module.exports={
 		})
 		log(`--files=${files} checked: ${found.length}`)
 		log(`\u001B[0;92m✓ looks good\u001B[0;0m`)
-	},
-	uninstall({files}){
+	}
+	,uninstall=({files})=>{
 		var count=0 
 			,found=glob.sync(files,{nodir:true})
 		found.forEach(path=>{
@@ -55,16 +54,18 @@ module.exports={
 		})
 		log(`${files} found ${found.length} files and removed ${count} ${token} signatures`)
 	}
-}
+	,run=(opts)=>{
+		if(opts.silent) silent=true
+		if(opts.files===undefined) opts.files=defaultGlob
+		if(opts.uninstall) uninstall(opts)
+		else check(opts)
+	}
 
 if(!module.parent){
 	args.option('readOnly', 'Whether to write signatures to files or error in their absence. Useful for tests', false,['read-only'])
 		.option('files', 'glob string passed to npmjs.org/glob to fetch file sequence', defaultGlob)
 		.option('uninstall', 'removes all signature comments from all files found via --files', false)
 		.option('silent', 'log nothing out', silent)
-
-	var given = args.parse(process.argv,{name:'file-freezer'})
-		,{silent}=given
-	var command = given.uninstall ? 'uninstall' : 'check'
-	module.exports[command](given)
+	run(args.parse(process.argv,{name:'file-freezer'}))
 }
+else module.exports=run
