@@ -30,7 +30,7 @@ var eachVar=require('eachvar')
 			if(hashInFile===undefined){
 				if(!readOnly){
 					fs.writeFileSync(path,sig+originalFileContents)
-					log(`wrote ${sig.replace(/\s/g,'')} to ${path}`)
+					log(`wrote ${sig.replace(/\n/g,'')} to ${path}`)
 				}
 				else failHard(`${path} is unsigned. Sign by running this without --readOnly`)
 			}
