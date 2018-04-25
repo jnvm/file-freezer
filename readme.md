@@ -25,6 +25,7 @@
 			<li><a href='#how'>how</a></li>
 			<li><a href='#but'>but</a></li>
 			<li><a href='#future'>future</a></li>
+			<li><a href='#changelog'>changelog</a></li>
 		</ul></tr></td>
 	</tbody>
 </table>
@@ -94,3 +95,7 @@ Attaching this to your tests with `--readOnly` will catch missing signatures and
 
 ## future
 * js (& sql?) AST-based hashing, so non-functional changes do not alter hash?
+
+
+## changelog
+* 2018-04-25 - altered token from `/*FILE-FREEZER:<HASH>*/` to `/* FILE-FREEZER:<HASH> */` to comport with common linter rules.  The matching regex was also updated, so existing signatures should still be found.

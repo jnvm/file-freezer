@@ -1,6 +1,6 @@
 {
   "name": "file-freezer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "automatically prevent certain file edits from slipping past human code review",
   "main": "file-freezer.js",
   "bin": "file-freezer.js",

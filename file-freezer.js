@@ -3,7 +3,7 @@ var eachVar=require('eachvar')
 	,token=`FILE-FREEZER`
 	,defaultGlob='./migrations/**/*.@(js|sql)'
 	,hashLength=16
-	,tokenRegex=new RegExp(`\\/\\*${token}:([0-9a-f]{${hashLength}})\\*\\/\n`)
+	,tokenRegex=new RegExp(`\\/\\*\\s?${token}:([0-9a-f]{${hashLength}})\\s?\\*\\/\n`)
 	,silent=false
 	,log=(...x)=> !silent ? console.log(...x) : ''
 	,failHard=(msg)=>{
@@ -24,7 +24,7 @@ var eachVar=require('eachvar')
 					.update(lastHash+originalFileContents)
 					.digest('hex')
 					.slice(0,hashLength)
-				,sig=`/*${token}:${hashNow}*/\n`
+				,sig=`/* ${token}:${hashNow} */\n`
 			
 			if(hashInFile===undefined){
 				if(!readOnly){
