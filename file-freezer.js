@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var eachVar=require('eachvar')
 	,{args,crypto,fs,glob}=eachVar(require)
 	,token=`FILE-FREEZER`
